@@ -37,6 +37,11 @@
       #{1 2 3 4}
       #{4 5 6 7}
       #{7 8 9 1}))
+  (testing "Col conditions when there are other moves"
+    (are [player-moves] (true? (has-won? player-moves))
+      #{1 4 7 8}
+      #{2 5 8 9}
+      #{3 4 6 9}))
   (testing "Failing conditions"
     (are [player-moves] (nil? (has-won? player-moves))
       #{1 2}
@@ -44,4 +49,8 @@
       #{7 8}
       #{1 4}
       #{2 5}
-      #{3 6})))
+      #{3 6}
+      #{}
+      #{1}
+      #{1 2 4 5}
+      #{3 4 5 8})))
